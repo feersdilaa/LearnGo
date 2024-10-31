@@ -38,24 +38,24 @@ func main() {
 		go sendTicket(userTicket, firstName, lastName, email)
 
 		firstNames := getFirstName()
-		fmt.Printf("These Are All Our Bookings: %v\n", firstNames)
+		fmt.Printf("Berikut Ticket Booking anda: %v\n", firstNames)
 
 		noTicketRemaining := remainingTicket == 0
 		if noTicketRemaining {
-			fmt.Printf("%v is Sold Out. Come back next century.\n", conferenceName)
+			fmt.Printf("%v Ticket Seminar tersebut soldout!\n", conferenceName)
 		}
 
 	} else {
 		if !isValidName {
-			fmt.Println("Your name is too short")
+			fmt.Println("Nama terlalu pendek")
 		}
 
 		if !isValidEmail {
-			fmt.Println("Invalid email address")
+			fmt.Println("Email yang anda masukkan invalid")
 		}
 
 		if !isValidTicket {
-			fmt.Println("Invalid Number of Tickets")
+			fmt.Println("Anda memasukkan no ticket yang salah")
 		}
 	}
 	wg.Wait()
@@ -81,16 +81,16 @@ func getUserInput() (string, string, string, uint) {
 	var email string
 	var userTicket uint
 
-	fmt.Println("Enter Your First Name")
+	fmt.Println("Masukkan nama depan anda:")
 	fmt.Scan(&firstName)
 
-	fmt.Println("Enter Your Last Name")
+	fmt.Println("Masukkan nama belakang anda:")
 	fmt.Scan(&lastName)
 
-	fmt.Println("Enter Your Email Address")
+	fmt.Println("Masukkan email address anda")
 	fmt.Scan(&email)
 
-	fmt.Println("Enter Number of Tickets:")
+	fmt.Println("Masukkan ticket yang anda pilih")
 	fmt.Scan(&userTicket)
 
 	return firstName, lastName, email, userTicket
